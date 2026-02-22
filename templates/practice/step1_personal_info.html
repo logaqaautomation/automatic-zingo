@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Policy Creation - Step 1{% endblock %}
+
+{% block content %}
+<div class="practice-container">
+    <div class="practice-navbar">
+        <h1>Insurance Policy Creation</h1>
+        <a href="{{ url_for('practice_reset') }}" class="btn-link">Back to Home</a>
+    </div>
+
+    <div class="practice-form-box">
+        <div class="progress-bar">
+            <div class="progress-step active">1</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">2</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">3</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">4</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">5</div>
+        </div>
+
+        <h2>Step 1: Personal Information</h2>
+        <p class="step-description">Please provide your personal details</p>
+
+        <form method="POST" action="{{ url_for('practice_step1_submit') }}" class="practice-form">
+            <!-- Name Field (TextBox) -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" class="textbox" placeholder="Enter your full name" required>
+                <small>Use only alphanumeric characters and spaces</small>
+            </div>
+
+            <!-- Address Field (TextBox) -->
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" class="textbox" placeholder="Enter your complete address" rows="3" required></textarea>
+                <small>Include street, city, and zip code</small>
+            </div>
+
+            <!-- Age Field (TextBox) -->
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" class="textbox" min="18" max="120" placeholder="Enter your age" required>
+                <small>Must be 18 or older</small>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Next Step →</button>
+        </form>
+
+        <div class="form-note">
+            <strong>UI Elements Used:</strong>
+            <ul>
+                <li>✓ TextBox (Name, Age)</li>
+                <li>✓ TextArea (Address)</li>
+                <li>✓ Button (Submit)</li>
+                <li>✓ Form Labels</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

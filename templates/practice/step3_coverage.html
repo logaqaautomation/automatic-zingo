@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Policy Creation - Step 3{% endblock %}
+
+{% block content %}
+<div class="practice-container">
+    <div class="practice-navbar">
+        <h1>Insurance Policy Creation</h1>
+        <a href="{{ url_for('practice_reset') }}" class="btn-link">Back to Home</a>
+    </div>
+
+    <div class="practice-form-box">
+        <div class="progress-bar">
+            <div class="progress-step active">1</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">2</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">3</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">4</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">5</div>
+        </div>
+
+        <h2>Step 3: Select Coverages</h2>
+        <p class="step-description">Choose the coverages you need for your policy</p>
+
+        <form method="POST" action="{{ url_for('practice_step3_submit') }}" class="practice-form">
+            <!-- Checkboxes for Coverage Options -->
+            <div class="form-group">
+                <label>Available Coverages (Checkboxes):</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="liability" name="coverage" value="Liability Coverage">
+                        <label for="liability">Liability Coverage - Third party protection</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="collision" name="coverage" value="Collision Coverage">
+                        <label for="collision">Collision Coverage - Vehicle damage</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="comprehensive" name="coverage" value="Comprehensive Coverage">
+                        <label for="comprehensive">Comprehensive Coverage - All-risk protection</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="medical" name="coverage" value="Medical Payments">
+                        <label for="medical">Medical Payments - Health coverage</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="uninsured" name="coverage" value="Uninsured Motorist">
+                        <label for="uninsured">Uninsured Motorist - Extra protection</label>
+                    </div>
+                </div>
+                <small>Select at least one coverage option</small>
+            </div>
+
+            <!-- File Upload for Documents -->
+            <div class="form-group">
+                <label for="document">Upload Supporting Document (File Upload):</label>
+                <input type="file" id="document" name="document" class="file-upload" accept=".pdf,.doc,.docx,.jpg,.png">
+                <small>Optional: Upload ID, License, or supporting documents (Max 5MB)</small>
+            </div>
+
+            <!-- Web Table - Summary of Previous Data -->
+            <div class="form-group">
+                <label>Your Information Summary (Web Table):</label>
+                <table class="summary-table">
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ session.get('practice_name', 'Not entered') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td>{{ session.get('practice_age', 'Not entered') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{ session.get('practice_address', 'Not entered') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Line of Business</td>
+                        <td>{{ session.get('practice_lob', 'Not selected') }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-buttons">
+                <a href="{{ url_for('practice_step2') }}" class="btn btn-secondary">← Previous</a>
+                <button type="submit" class="btn btn-primary">Next Step →</button>
+            </div>
+        </form>
+
+        <div class="form-note">
+            <strong>UI Elements Used:</strong>
+            <ul>
+                <li>✓ Checkboxes (Coverage Selection)</li>
+                <li>✓ File Upload (Document upload)</li>
+                <li>✓ Web Table (Data display)</li>
+                <li>✓ Button & Links (Navigation)</li>
+                <li>✓ Links (Back button)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

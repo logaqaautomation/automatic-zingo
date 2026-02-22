@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Policy Creation - Step 4{% endblock %}
+
+{% block content %}
+<div class="practice-container">
+    <div class="practice-navbar">
+        <h1>Insurance Policy Creation</h1>
+        <a href="{{ url_for('practice_reset') }}" class="btn-link">Back to Home</a>
+    </div>
+
+    <div class="practice-form-box">
+        <div class="progress-bar">
+            <div class="progress-step active">1</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">2</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">3</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">4</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">5</div>
+        </div>
+
+        <h2>Step 4: Premium Calculation</h2>
+        <p class="step-description">Your personalized premium has been calculated based on your information</p>
+
+        <!-- Premium Summary Web Table -->
+        <div class="premium-summary">
+            <h3>Premium Details</h3>
+            <table class="premium-table">
+                <tr>
+                    <td class="label">Line of Business:</td>
+                    <td class="value">{{ lob }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Age Factor:</td>
+                    <td class="value">{{ session.get('practice_age') }} years</td>
+                </tr>
+                <tr>
+                    <td class="label">Selected Coverages:</td>
+                    <td class="value">{{ session.get('practice_coverages', 'Basic Coverage') }}</td>
+                </tr>
+                <tr class="total-row">
+                    <td class="label"><strong>Annual Premium:</strong></td>
+                    <td class="value premium-amount"><strong>${{ "%.2f"|format(premium) }}</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Premium Breakdown -->
+        <div class="premium-breakdown">
+            <h4>Premium Breakdown:</h4>
+            <ul>
+                <li>Base Premium: ${% if lob == 'Auto' %}1,200{% elif lob == 'Home' %}800{% elif lob == 'Health' %}500{% else %}300{% endif %}</li>
+                {% if session.get('practice_age') and session.get('practice_age')|int > 50 %}
+                <li>Age Surcharge (50+): +25%</li>
+                {% elif session.get('practice_age') and session.get('practice_age')|int < 25 %}
+                <li>Age Discount (Under 25): +15%</li>
+                {% else %}
+                <li>Age Factor: Standard</li>
+                {% endif %}
+                <li>Coverage Selection: Included</li>
+            </ul>
+        </div>
+
+        <!-- Payment Options -->
+        <div class="payment-section">
+            <h3>Payment Options</h3>
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="monthly" name="payment" value="Monthly">
+                    <label for="monthly">Monthly Payment - ${{"%.2f"|format(premium/12) }} per month</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="quarterly" name="payment" value="Quarterly">
+                    <label for="quarterly">Quarterly Payment - ${{"%.2f"|format(premium/4) }} per quarter</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="annual" name="payment" value="Annual">
+                    <label for="annual">Annual Payment - ${{"%.2f"|format(premium) }} (Best Value!)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-buttons">
+            <a href="{{ url_for('practice_step3') }}" class="btn btn-secondary">← Previous</a>
+            <a href="{{ url_for('practice_step5') }}" class="btn btn-success">Issue Policy →</a>
+        </div>
+
+        <div class="form-note">
+            <strong>UI Elements Used:</strong>
+            <ul>
+                <li>✓ Web Table (Premium Summary)</li>
+                <li>✓ Web Table (Premium Breakdown)</li>
+                <li>✓ Radio Buttons (Payment Options)</li>
+                <li>✓ Links & Buttons (Navigation)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

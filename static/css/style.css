@@ -724,3 +724,664 @@ body {
         font-size: 16px;
     }
 }
+
+/* ========== PRACTICE APPLICATION STYLES ========== */
+
+.practice-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.practice-navbar {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.practice-navbar h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.btn-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Practice Form Box */
+.practice-form-box {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.progress-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.progress-step.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.progress-line {
+    width: 50px;
+    height: 3px;
+    background: #e0e0e0;
+    margin: 0 10px;
+}
+
+.progress-bar .progress-step.active + .progress-line {
+    background: #667eea;
+}
+
+/* Form Styling */
+.practice-form h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.step-description {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.practice-form .form-group {
+    margin-bottom: 25px;
+}
+
+.practice-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.practice-form small {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Input Elements */
+.textbox {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    font-family: inherit;
+}
+
+.textbox:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+}
+
+textarea.textbox {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ListBox (Select) */
+.listbox {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.listbox:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+}
+
+/* Radio Buttons */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.radio-item:hover {
+    background-color: #f5f5f5;
+}
+
+.radio-item input[type="radio"] {
+    margin-right: 12px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.radio-item label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.checkbox-item:hover {
+    background-color: #f5f5f5;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 12px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-item label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* File Upload */
+.file-upload {
+    display: block;
+    padding: 10px;
+    border: 2px dashed #667eea;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: all 0.3s;
+}
+
+.file-upload:hover {
+    background-color: #f0f0f0;
+    border-color: #764ba2;
+}
+
+.file-upload:focus {
+    outline: none;
+    background-color: #f0f0f0;
+}
+
+/* Web Tables */
+.summary-table,
+.premium-table,
+.policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.summary-table tr,
+.premium-table tr,
+.policy-table tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-table th,
+.premium-table th,
+.policy-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.summary-table td,
+.premium-table td,
+.policy-table td {
+    padding: 12px;
+}
+
+.summary-table tr:last-child,
+.premium-table tr:last-child,
+.policy-table tr:last-child {
+    border-bottom: none;
+}
+
+.summary-table .label,
+.premium-table .label,
+.policy-table .label {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    color: #333;
+    width: 40%;
+}
+
+.premium-amount {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.total-row,
+.premium-row {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.status-active {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary,
+.btn-success {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #d0d0d0;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #229954;
+    transform: translateY(-2px);
+}
+
+.btn-practice {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-practice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Form Buttons Container */
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-buttons .btn {
+    flex: 1;
+    text-align: center;
+}
+
+/* Success Box */
+.success-box {
+    border: 2px solid #27ae60;
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.05), rgba(39, 174, 96, 0.02));
+}
+
+.success-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    border-radius: 10px;
+}
+
+.success-header h2 {
+    margin: 0 0 10px 0;
+    color: white;
+}
+
+.success-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Policy Certificate */
+.policy-certificate {
+    background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%);
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.certificate-header {
+    text-align: center;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.policy-number {
+    color: #667eea;
+    font-size: 16px;
+    margin: 10px 0 5px 0;
+}
+
+.issue-date {
+    color: #666;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* Premium Summary Section */
+.premium-summary,
+.payment-section {
+    background: #f9f9f9;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.premium-summary h3,
+.payment-section h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.premium-breakdown {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.premium-breakdown h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.premium-breakdown ul {
+    list-style-position: inside;
+    color: #666;
+}
+
+.premium-breakdown li {
+    margin: 8px 0;
+}
+
+/* Next Steps Section */
+.next-steps {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.next-steps h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.step-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.step-content p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Policy Terms */
+.policy-terms {
+    background: #f0f8ff;
+    border-left: 4px solid #667eea;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.policy-terms h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.policy-terms ul {
+    list-style-position: inside;
+    color: #666;
+    margin: 0;
+}
+
+.policy-terms li {
+    margin: 8px 0;
+}
+
+/* Form Note */
+.form-note {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+.form-note strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-note ul {
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    color: #666;
+}
+
+.form-note li {
+    margin: 5px 0;
+}
+
+.success-note {
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(39, 174, 96, 0.05));
+    border: 1px solid #27ae60;
+}
+
+.success-note strong {
+    color: #27ae60;
+}
+
+/* Practice App Section in Sidebar */
+.practice-app-section {
+    background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.practice-app-section h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.practice-app-section p {
+    color: #666;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+/* Responsive Design for Practice App */
+@media (max-width: 600px) {
+    .practice-form-box {
+        padding: 20px;
+    }
+
+    .practice-navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .practice-navbar h1 {
+        font-size: 18px;
+    }
+
+    .progress-bar {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .progress-step {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .progress-line {
+        width: 30px;
+        margin: 0 5px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .steps-list {
+        flex-direction: column;
+    }
+
+    .summary-table th,
+    .premium-table th,
+    .policy-table th {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .summary-table td,
+    .premium-table td,
+    .policy-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

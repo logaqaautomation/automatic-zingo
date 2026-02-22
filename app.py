@@ -148,6 +148,104 @@ def logout():
     return redirect(url_for('login'))
 
 
+# ========== AUTOMATION PRACTICE APPLICATION ==========
+
+@app.route('/practice')
+@login_required
+def practice_step1():
+    return render_template('practice/step1_personal_info.html')
+
+
+@app.route('/practice/step1', methods=['POST'])
+@login_required
+def practice_step1_submit():
+    session['practice_name'] = request.form.get('name')
+    session['practice_address'] = request.form.get('address')
+    session['practice_age'] = request.form.get('age')
+    return redirect(url_for('practice_step2'))
+
+
+@app.route('/practice/step2')
+@login_required
+def practice_step2():
+    return render_template('practice/step2_lob.html')
+
+
+@app.route('/practice/step2', methods=['POST'])
+@login_required
+def practice_step2_submit():
+    session['practice_lob'] = request.form.get('lob')
+    return redirect(url_for('practice_step3'))
+
+
+@app.route('/practice/step3')
+@login_required
+def practice_step3():
+    return render_template('practice/step3_coverage.html')
+
+
+@app.route('/practice/step3', methods=['POST'])
+@login_required
+def practice_step3_submit():
+    coverages = request.form.getlist('coverage')
+    session['practice_coverages'] = ', '.join(coverages)
+    return redirect(url_for('practice_step4'))
+
+
+@app.route('/practice/step4')
+@login_required
+def practice_step4():
+    # Calculate premium based on age and LOB
+    age = int(session.get('practice_age', 30))
+    lob = session.get('practice_lob', 'Auto')
+    
+    # Premium calculation logic
+    base_premium = {'Auto': 1200, 'Home': 800, 'Health': 500, 'Life': 300}
+    premium = base_premium.get(lob, 1000)
+    
+    # Age adjustment
+    if age > 50:
+        premium = premium * 1.25
+    elif age < 25:
+        premium = premium * 1.15
+    
+    session['practice_premium'] = round(premium, 2)
+    
+    return render_template('practice/step4_premium.html', 
+                         premium=session['practice_premium'],
+                         lob=lob)
+
+
+@app.route('/practice/step5')
+@login_required
+def practice_step5():
+    import datetime
+    import random
+    
+    # Generate policy number
+    policy_number = f"POL{datetime.datetime.now().strftime('%Y%m%d')}{random.randint(10000, 99999)}"
+    session['practice_policy_number'] = policy_number
+    
+    return render_template('practice/step5_policy_issued.html',
+                         name=session.get('practice_name'),
+                         address=session.get('practice_address'),
+                         age=session.get('practice_age'),
+                         lob=session.get('practice_lob'),
+                         coverages=session.get('practice_coverages'),
+                         premium=session.get('practice_premium'),
+                         policy_number=policy_number)
+
+
+@app.route('/practice/reset')
+@login_required
+def practice_reset():
+    # Clear practice session data
+    for key in list(session.keys()):
+        if key.startswith('practice_'):
+            session.pop(key)
+    return redirect(url_for('home'))
+
+
 if __name__ == '__main__':
     # Set debug mode based on environment
     is_production = os.environ.get('ENVIRONMENT', 'development') == 'production'

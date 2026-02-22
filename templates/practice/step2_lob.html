@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Policy Creation - Step 2{% endblock %}
+
+{% block content %}
+<div class="practice-container">
+    <div class="practice-navbar">
+        <h1>Insurance Policy Creation</h1>
+        <a href="{{ url_for('practice_reset') }}" class="btn-link">Back to Home</a>
+    </div>
+
+    <div class="practice-form-box">
+        <div class="progress-bar">
+            <div class="progress-step active">1</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">2</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">3</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">4</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">5</div>
+        </div>
+
+        <h2>Step 2: Line of Business Selection</h2>
+        <p class="step-description">Select the type of insurance policy you need</p>
+
+        <form method="POST" action="{{ url_for('practice_step2_submit') }}" class="practice-form">
+            <!-- ListBox (Dropdown) for LOB -->
+            <div class="form-group">
+                <label for="lob">Select Line of Business (ListBox):</label>
+                <select id="lob" name="lob" class="listbox" required>
+                    <option value="">-- Select an Option --</option>
+                    <option value="Auto">Auto Insurance - Vehicle coverage</option>
+                    <option value="Home">Home Insurance - Property coverage</option>
+                    <option value="Health">Health Insurance - Medical coverage</option>
+                    <option value="Life">Life Insurance - Life protection</option>
+                </select>
+                <small>Choose the type of insurance you need</small>
+            </div>
+
+            <!-- Radio Buttons for Coverage Type -->
+            <div class="form-group">
+                <label>Select Coverage Type (Radio Buttons):</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="basic" name="coverage_type" value="Basic" required>
+                        <label for="basic">Basic Coverage - Essential protection</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="standard" name="coverage_type" value="Standard">
+                        <label for="standard">Standard Coverage - Recommended</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="premium" name="coverage_type" value="Premium">
+                        <label for="premium">Premium Coverage - Maximum protection</label>
+                    </div>
+                </div>
+                <small>Select your preferred coverage level</small>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-buttons">
+                <a href="{{ url_for('practice_step1') }}" class="btn btn-secondary">← Previous</a>
+                <button type="submit" class="btn btn-primary">Next Step →</button>
+            </div>
+        </form>
+
+        <div class="form-note">
+            <strong>UI Elements Used:</strong>
+            <ul>
+                <li>✓ ListBox / Dropdown (LOB Selection)</li>
+                <li>✓ Radio Buttons (Coverage Type)</li>
+                <li>✓ Button (Submit & Navigate)</li>
+                <li>✓ Links (Navigation)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

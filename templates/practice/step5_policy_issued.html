@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Policy Created Successfully{% endblock %}
+
+{% block content %}
+<div class="practice-container">
+    <div class="practice-navbar">
+        <h1>Insurance Policy Creation</h1>
+        <a href="{{ url_for('practice_reset') }}" class="btn-link">Back to Home</a>
+    </div>
+
+    <div class="practice-form-box success-box">
+        <div class="progress-bar">
+            <div class="progress-step active">1</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">2</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">3</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">4</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">5</div>
+        </div>
+
+        <div class="success-header">
+            <h2>✓ Policy Successfully Issued!</h2>
+            <p>Your insurance policy has been created and activated</p>
+        </div>
+
+        <!-- Policy Summary Web Table -->
+        <div class="policy-certificate">
+            <div class="certificate-header">
+                <h3>Insurance Policy Certificate</h3>
+                <p class="policy-number">Policy Number: <strong>{{ policy_number }}</strong></p>
+                <p class="issue-date">Issued: {{ now|default('February 22, 2026') }}</p>
+            </div>
+
+            <table class="policy-table">
+                <tr>
+                    <th colspan="2">Policyholder Information</th>
+                </tr>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td class="value">{{ name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Age:</td>
+                    <td class="value">{{ age }} years old</td>
+                </tr>
+                <tr>
+                    <td class="label">Address:</td>
+                    <td class="value">{{ address }}</td>
+                </tr>
+                <tr>
+                    <th colspan="2">Policy Details</th>
+                </tr>
+                <tr>
+                    <td class="label">Line of Business:</td>
+                    <td class="value">{{ lob }} Insurance</td>
+                </tr>
+                <tr>
+                    <td class="label">Coverage Type:</td>
+                    <td class="value">{{ coverages }}</td>
+                </tr>
+                <tr class="premium-row">
+                    <td class="label"><strong>Annual Premium:</strong></td>
+                    <td class="value premium-amount"><strong>${{ "%.2f"|format(premium) }}</strong></td>
+                </tr>
+                <tr>
+                    <td class="label">Policy Status:</td>
+                    <td class="value status-active">✓ ACTIVE</td>
+                </tr>
+            </table>
+
+            <div class="policy-terms">
+                <h4>Policy Terms & Conditions:</h4>
+                <ul>
+                    <li>✓ Coverage is effective from the issue date</li>
+                    <li>✓ Policy renews automatically every 12 months</li>
+                    <li>✓ You can modify coverage options at any time</li>
+                    <li>✓ Claims can be filed through the customer portal</li>
+                    <li>✓ 24/7 customer support available</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>What's Next?</h3>
+            <div class="steps-list">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                        <h4>Verify Your Information</h4>
+                        <p>Review all policy details and contact us if any changes are needed</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                        <h4>Set Up Payment</h4>
+                        <p>Choose your payment method and schedule for automatic deduction</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                        <h4>Download Your Policy</h4>
+                        <p>Save your policy document and keep it for reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-buttons">
+            <a href="{{ url_for('practice_reset') }}" class="btn btn-primary">Complete Practice</a>
+            <a href="{{ url_for('practice_step1') }}" class="btn btn-secondary">Start Over</a>
+        </div>
+
+        <div class="form-note success-note">
+            <strong>✓ Practice Application Complete!</strong>
+            <p>You've successfully navigated through a complete policy creation workflow demonstrating various automation testing elements:</p>
+            <ul>
+                <li>✓ TextBox & TextArea inputs (Step 1)</li>
+                <li>✓ ListBox & Radio Buttons (Step 2)</li>
+                <li>✓ Checkboxes & File Upload (Step 3)</li>
+                <li>✓ Web Tables (Steps 3, 4, 5)</li>
+                <li>✓ Links & Buttons (Throughout)</li>
+                <li>✓ Dynamic Data Display (Steps 4, 5)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
