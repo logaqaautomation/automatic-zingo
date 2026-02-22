@@ -5,7 +5,10 @@
 {% block content %}
 <div class="home-container">
     <div class="navbar">
-        <h1 class="navbar-title">Loga QA Automation</h1>
+        <div class="navbar-left">
+            <img src="{{ url_for('static', filename='images/profile.jpeg') }}" alt="Profile Logo" class="navbar-logo">
+            <h1 class="navbar-title">Loga QA Automation</h1>
+        </div>
         <a href="{{ url_for('logout') }}" class="btn btn-logout">Logout</a>
     </div>
 
