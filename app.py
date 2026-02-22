@@ -149,11 +149,19 @@ def logout():
 
 
 if __name__ == '__main__':
+    # Set debug mode based on environment
+    is_production = os.environ.get('ENVIRONMENT', 'development') == 'production'
+    
     print("=" * 60)
     print("Flask Student Enrollment App")
     print("=" * 60)
     print("✓ MongoDB connected to: cluster0.ler3cub.mongodb.net")
     print("✓ Starting Flask server...")
-    print("→ Visit: http://localhost:3000")
+    
+    if is_production:
+        print("→ Production Mode - Use Gunicorn")
+    else:
+        print("→ Visit: http://localhost:3000")
+    
     print("=" * 60)
-    app.run(debug=True, host='localhost', port=3000)
+    app.run(debug=not is_production, host='0.0.0.0', port=int(os.environ.get('PORT', 3000)))
