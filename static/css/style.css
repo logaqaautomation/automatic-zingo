@@ -750,6 +750,32 @@ body {
     margin: 0;
 }
 
+.practice-navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.practice-navbar-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.practice-navbar-logo:hover {
+    transform: scale(1.1);
+}
+
+.practice-navbar h1 {
+    font-size: 24px;
+    margin: 0;
+    color: white;
+}
+
 .btn-link {
     color: #667eea;
     text-decoration: none;

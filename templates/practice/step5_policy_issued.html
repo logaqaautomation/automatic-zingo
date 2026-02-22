@@ -5,7 +5,10 @@
 {% block content %}
 <div class="practice-container">
     <div class="practice-navbar">
-        <h1>Insurance Policy Creation</h1>
+        <div class="practice-navbar-left">
+            <img src="{{ url_for('static', filename='images/profile.jpeg') }}" alt="Profile Logo" class="practice-navbar-logo">
+            <h1>Insurance Policy Creation</h1>
+        </div>
         <a href="{{ url_for('practice_reset') }}" class="btn-link">Back to Home</a>
     </div>
 
