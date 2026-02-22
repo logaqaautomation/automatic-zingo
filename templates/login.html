@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Loga QA Automation{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box">
+        <h1>Loga QA Automation - Student Login</h1>
+        
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('login') }}" class="auth-form">
+            <div class="form-group">
+                <label for="user_id">User ID</label>
+                <input type="text" id="user_id" name="user_id" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <p class="auth-link">Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a></p>
+    </div>
+</div>
+{% endblock %}

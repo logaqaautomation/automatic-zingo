@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+{% block title %}Loga QA Automation{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="navbar">
+        <h1 class="navbar-title">Loga QA Automation</h1>
+        <a href="{{ url_for('logout') }}" class="btn btn-logout">Logout</a>
+    </div>
+
+    <div class="home-content-wrapper">
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-button active" onclick="openTab(event, 'overview')">Overview of the Site</button>
+                <button class="tab-button" onclick="openTab(event, 'courses')">Courses Offered</button>
+                <button class="tab-button" onclick="openTab(event, 'testimony')">Student Testimony</button>
+                <button class="tab-button" onclick="openTab(event, 'contact')">Contact</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+            <h3>Overview of Loga QA Automation</h3>
+            <p>Welcome to Loga QA Automation, your premier platform for learning and mastering quality assurance and automation testing.</p>
+            <div class="overview-content">
+                <div class="overview-item">
+                    <h4>🎓 Quality Education</h4>
+                    <p>Learn from industry experts with years of experience in QA automation and software testing.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>💻 Hands-On Training</h4>
+                    <p>Practice real-world scenarios with our comprehensive lab environment and projects.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>🏆 Industry Recognition</h4>
+                    <p>Earn certificates that are recognized by leading companies in the tech industry.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>🤝 Community Support</h4>
+                    <p>Join our active community of QA professionals and get support throughout your learning journey.</p>
+                </div>
+            </div>
+            <div class="overview-youtube">
+                <div class="youtube-logo">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.25z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </div>
+                <h4>Check out our YouTube Channel</h4>
+                <p>Subscribe to our <a href="https://www.youtube.com/@logaqaautomation" target="_blank" rel="noopener noreferrer">YouTube channel</a> for video tutorials, debugging tips, and industry insights!</p>
+            </div>
+        </div>
+
+        <!-- Courses Offered Tab -->
+        <div id="courses" class="tab-content">
+            <h3>Courses Offered</h3>
+            <div class="courses-list">
+                <div class="course-item">
+                    <h4>Selenium WebDriver Automation</h4>
+                    <p>Master web automation using Selenium WebDriver with Java/Python. Duration: 6 weeks</p>
+                    <span class="course-level">Beginner to Intermediate</span>
+                </div>
+                <div class="course-item">
+                    <h4>Mobile Testing with Appium</h4>
+                    <p>Learn mobile app automation testing for iOS and Android applications. Duration: 5 weeks</p>
+                    <span class="course-level">Intermediate</span>
+                </div>
+                <div class="course-item">
+                    <h4>API Testing with Postman & RestAssured</h4>
+                    <p>Complete guide to API testing, automation, and integration testing. Duration: 4 weeks</p>
+                    <span class="course-level">Intermediate to Advanced</span>
+                </div>
+                <div class="course-item">
+                    <h4>CI/CD with Jenkins & Docker</h4>
+                    <p>Learn continuous integration and deployment with modern DevOps tools. Duration: 5 weeks</p>
+                    <span class="course-level">Advanced</span>
+                </div>
+                <div class="course-item">
+                    <h4>Test Framework Development</h4>
+                    <p>Build robust automation frameworks from scratch with best practices. Duration: 7 weeks</p>
+                    <span class="course-level">Advanced</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Testimony Tab -->
+        <div id="testimony" class="tab-content">
+            <h3>Student Testimony</h3>
+            <div class="testimonies">
+                <div class="testimony-item">
+                    <div class="testimony-header">
+                        <p class="testimony-name">Rahul Kumar</p>
+                        <p class="testimony-role">QA Engineer at TechCorp</p>
+                    </div>
+                    <p class="testimony-text">"Loga QA Automation transformed my career! The hands-on training and expert guidance helped me land my dream job. Highly recommended!"</p>
+                    <div class="testimony-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimony-item">
+                    <div class="testimony-header">
+                        <p class="testimony-name">Priya Singh</p>
+                        <p class="testimony-role">Automation QA Lead at InnovateTech</p>
+                    </div>
+                    <p class="testimony-text">"The curriculum is comprehensive and up-to-date with industry standards. I not only learned Selenium and Appium but also gained confidence in API testing."</p>
+                    <div class="testimony-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimony-item">
+                    <div class="testimony-header">
+                        <p class="testimony-name">Arjun Patel</p>
+                        <p class="testimony-role">Software Test Engineer at GlobalSoft</p>
+                    </div>
+                    <p class="testimony-text">"The instructors are knowledgeable and always ready to help. The projects I worked on during the course are now showcased in my portfolio."</p>
+                    <div class="testimony-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimony-item">
+                    <div class="testimony-header">
+                        <p class="testimony-name">Sneha Desai</p>
+                        <p class="testimony-role">Senior QA Automation Engineer</p>
+                    </div>
+                    <p class="testimony-text">"I completed the advanced framework development course and it was exactly what I needed to become a technical lead in my team."</p>
+                    <div class="testimony-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <h3>Contact Us</h3>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>📧 Email</h4>
+                        <p><a href="mailto:loga.qaautomation@gmail.com">loga.qaautomation@gmail.com</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>📞 Phone</h4>
+                        <p>+91 (XXX) XXX-XXXX</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>📍 Address</h4>
+                        <p>Loga QA Automation Training Center</p>
+                        <p>XXX Tech Street, Innovation Park</p>
+                        <p>Bangalore, India XXXXXX</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>🕒 Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h4>Send us a Message</h4>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Section (Right Side) -->
+    <div class="welcome-section-sidebar">
+        <div class="welcome-box-sidebar">
+            <h2 class="welcome-message-sidebar">Welcome, {{ first_name }} {{ last_name }}!</h2>
+            
+            <div class="student-info">
+                <div class="info-item">
+                    <label>Student Name:</label>
+                    <p>{{ first_name }} {{ last_name }}</p>
+                </div>
+
+                <div class="info-item">
+                    <label>Student Registration ID:</label>
+                    <p>{{ registration_id }}</p>
+                </div>
+
+                <div class="info-item">
+                    <label>User ID:</label>
+                    <p>{{ user_id }}</p>
+                </div>
+            </div>
+
+            <div class="success-message">
+                {% if is_first_login %}
+                    ✓ You have successfully logged in to the enrollment system.
+                {% else %}
+                    ✓ You have successfully logged in
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+    // Hide all tab contents
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    // Remove active class from all buttons
+    const tabButtons = document.querySelectorAll('.tab-button');
+    tabButtons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    // Show the current tab
+    document.getElementById(tabName).classList.add('active');
+    evt.currentTarget.classList.add('active');
+}
+</script>
+{% endblock %}
