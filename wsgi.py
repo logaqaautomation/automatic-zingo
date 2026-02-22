@@ -1,0 +1,16 @@
+"""
+WSGI entry point for Gunicorn on Render
+This file is used by Gunicorn to start the Flask application
+"""
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Import the Flask app
+from app import app
+
+# Make the app available to Gunicorn
+if __name__ == "__main__":
+    app.run()
